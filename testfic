@@ -1,0 +1,19 @@
+#!/bin/bash
+if test $# -eq 0 -o $1 = "-h"; then
+# Si le fichier ou repertoire n'est pas
+# specifie ou existant mais que l'option "-h"
+# est ajoutee alors on affiche l'aide
+# $# signifie une variable
+  echo "usage : testfic nomfichier1...nomfichiern"
+else
+  for i
+  do
+    if [ -d "$i$" ]; then
+      echo $i est un repertoire
+    elif [ -f "$i" ]; then
+      echo Le fichier $i existe
+    else
+      echo $i n\'existe pas
+    fi
+  done
+fi
