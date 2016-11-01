@@ -5,26 +5,26 @@ if [ "$#" == "0" -o "$1" = "-h" ]; then
   echo "$USAGE"
 else
   if [ $1 -le 1976 ]; then
-    echo "Categorie : Masters";
+    echo -n "master";
   elif [[ $1 -le 1993 && $1 -ge 1977 ]]; then
-    echo "Categorie : Seniors"; 
+    echo -n "senior"; 
   elif [[ $1 -le 1996 && $1 -ge 1992 ]]; then
-   echo "Categorie : Espoirs";
+   echo -n "espoir";
   elif [[ $1 -le 1998 && $1 -ge 1997 ]]; then
-   echo "Categorie : Juniors";
+   echo -n "junior";
   elif [[ $1 -le 2000 && $1 -ge 1999 ]]; then
-   echo "Categorie : Cadets";
+   echo -n "cadet";
   elif [[ $1 -le 2002 && $1 -ge 2001 ]]; then
-    echo "Categorie : Minimes";
+    echo -n "minime";
   elif [[ $1 -le 2004 && $1 -ge 2003 ]]; then
-    echo "Categorie : Benjamins";
+    echo -n "benjamin";
   elif [[ $1 -le 2006 && $1 -ge 2005 ]]; then
-    echo "Categorie : Poussins";
+    echo -n "poussin";
   elif [[ $1 -le 2009 && $1 -ge 2007 ]]; then
-    echo "Categorie : Ecole d'Athletisme";
+    echo -n "membre de l'Ecole d'Athletisme";
   elif [[ $1 -ge 2010 ]]; then
-    echo "Categorie : Baby Athle";
+    echo -n "baby Athle";
   else
-    echo "Valeur invalide";
+    echo -n "Valeur invalide";
   fi
 fi

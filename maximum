@@ -9,5 +9,5 @@ maxi="0";
   do
     [ "$maxi" -lt "$i" ] && maxi=$i;
   done
- echo "La valeur maximale est : $maxi";
+ echo -n "$maxi";
 fi

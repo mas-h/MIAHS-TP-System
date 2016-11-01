@@ -1,0 +1,13 @@
+#!/bin/bash
+# Ce script affiche la categorie et le meilleur resultat d'un athlete
+USAGE="Usage : afficherresultat Prenom Nom DateDeNaissance(JJ-MM-AAAA) essai1 essai2 essai3"
+if [ "$#" == "0" -o "$1" = "-h" ]; then
+  echo "$USAGE"
+else
+  annee=${3: -4}; # Garde les 4 derniers caracteres du parametre 3 (soit l'annee)
+  echo -n "Le meilleur lancer du $cate";
+  ./categorie $annee; # On affiche categorie selon date
+  echo -n " $1 $2 est de ";
+  ./maximum $4 $5 $6; # On affiche le maximum entre les 3 essais
+  echo " m.";
+fi
