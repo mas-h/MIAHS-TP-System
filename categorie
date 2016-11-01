@@ -1,0 +1,30 @@
+#!/bin/bash
+# Ce script affiche la categorie d'un athlete selon son annee de naissance
+USAGE="Usage : categorie param1"
+if [ "$#" == "0" -o "$1" = "-h" ]; then
+  echo "$USAGE"
+else
+  if [ $1 -le 1976 ]; then
+    echo "Categorie : Masters";
+  elif [[ $1 -le 1993 && $1 -ge 1977 ]]; then
+    echo "Categorie : Seniors"; 
+  elif [[ $1 -le 1996 && $1 -ge 1992 ]]; then
+   echo "Categorie : Espoirs";
+  elif [[ $1 -le 1998 && $1 -ge 1997 ]]; then
+   echo "Categorie : Juniors";
+  elif [[ $1 -le 2000 && $1 -ge 1999 ]]; then
+   echo "Categorie : Cadets";
+  elif [[ $1 -le 2002 && $1 -ge 2001 ]]; then
+    echo "Categorie : Minimes";
+  elif [[ $1 -le 2004 && $1 -ge 2003 ]]; then
+    echo "Categorie : Benjamins";
+  elif [[ $1 -le 2006 && $1 -ge 2005 ]]; then
+    echo "Categorie : Poussins";
+  elif [[ $1 -le 2009 && $1 -ge 2007 ]]; then
+    echo "Categorie : Ecole d'Athletisme";
+  elif [[ $1 -ge 2010 ]]; then
+    echo "Categorie : Baby Athle";
+  else
+    echo "Valeur invalide";
+  fi
+fi
