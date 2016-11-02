@@ -1,0 +1,13 @@
+#!/bin/bash
+# Ce script affiche la valeur maximum entre plusieurs parametres
+USAGE="Usage : maximum parm1 param2 ... paramN"
+if [ "$#" == "0" -o "$1" = "-h" ]; then
+  echo "$USAGE"
+else
+maxi="0";
+ for i in $@
+  do
+    [ "$maxi" -lt "$i" ] && maxi=$i;
+  done
+ echo -n "$maxi";
+fi
