@@ -1,0 +1,52 @@
+#!/bin/bash
+# vérifie que tous les paramètres sont bien des entiers
+# Auteur : Jean-Michel Adam (c) 2016
+
+
+function aide ()
+
+{
+	echo "usage : categorie ... annee de naissance "
+	echo "affiche la categorie d'age d'un athlete "
+}
+if [ "$#" -lt 1 ]; then # On vérifie qu'il y ai au moins un paramètre donné
+echo "aucun parametre" >&2 # On affiche un message d'erreur et l'aide de la commande si ce n'est pas le cas 
+aide
+
+
+elif [ "$1" = "-h" ]; then aide # affiche l'aide de la commande si $1 = "-h"
+
+else # On énumère tout les cas possibles pour le classement du parametre dans une catégorie d'age
+
+	if [ "$1" -le 1976 ]; then 
+		categ="Masters"
+		
+	elif [ "$1" -le 1993 ]; then
+		categ="Seniors"
+		
+	elif [ "$1" -le 1996 ]; then 
+		categ="Espoirs"
+	
+	elif ["$1" -le 1998 ]; then 
+		categ="Juniors"
+			
+	elif [ "$1" -le 2000 ]; then 
+		categ="Cadets"	
+	
+	elif [ "$1" -le 2002 ]; then 
+		categ="Minimes"
+		
+	elif [ "$1" -le 2004 ]; then 
+		categ="Benjamins"	
+	
+	elif [ "$1" -le 2006 ]; then 
+	categ="Poussins"
+		
+	elif [ "$1" -le 2009 ]; then 
+		categ="Ecole d'athletisme"	
+	
+	else  
+		categ="Baby Athle"
+	fi 
+echo "La categorie d'age correspondant a la date donnee est $categ " # On affiche le resulat
+fi 

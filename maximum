@@ -1,0 +1,33 @@
+#!/bin/bash
+# Commande qui va permettre de trouver la valeur maximum entre tous les paramètres
+#Auteur : Samuel Huguet 2016
+
+function aide ()
+# affiche l'aide de la commande (si $1 = "-h"
+{
+	echo "usage : maximum v1 v2 ... vn"
+	echo "Defini un maximum parmis une liste de parametres donnes"
+	echo "affiche un message d'erreur si il n'y a pas de parametre donne lors de l'utilisation du script"
+	
+}
+
+if [ $# -lt 1 ] # On vérifie qu'il y ai au moins un paramètre donné.
+	then 
+		echo " ERREUR, veuillez fournir au moins un parametre " >&2 # On affiche un message d'erreur s'il n'y a pas de paramètre.
+		aide # On appelle la fonction aide pour fournir à l'utilisateur le fonctionnement de la commande. 
+elif [ $1 = "-h" ]
+	then aide
+else
+
+	maxi=0 # On initialise la variable maxi à 0.
+
+
+	for i  in $*  # On itère du nombre de paramètres.
+		do 
+			if [ $i -gt $maxi ]  # Si la valeur de i est supérieure à la valeur de maxi alors maxi prend la valeur de i
+			then	 
+			maxi=$i
+			fi 
+		done
+	echo "$maxi"	# On affiche la valeur de la variable maxi
+fi 
