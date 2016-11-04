@@ -1,0 +1,31 @@
+#!/bin/bash
+# affiche la catégorie et le meilleur lancé d'un athlète donné
+# Auteur : Samuel Huguet 2016
+
+function aide ()
+
+{
+	echo "affiche la categorie et le meilleur lance d'un athlete donne"
+	echo "usage : afficherresultats prenom nom date_de_naissance (sous la forme : j-m-aaaa) lance1 lance2 lance3"
+	echo "vous pouvez acceder a l'aide en tapant : afficherresultats -h"
+	
+}
+
+if [ "$#" -ne 6 ]; then # On controle qu'il y ai bien 6 parametres
+echo "Erreur, le nombre de parametres donnes est incorrect. Veuillez fournir 6 parametres et seulement 6."  # Sinon on affiche un message d'erreur et l'aide
+
+aide
+
+elif [ "$1" = "-h" ]; then # Affiche l'aide de la commande si le premier paramètre vaut "-h"
+aide
+
+else 
+	
+
+	dtn="$3" #On initialise la variable dtn au troisième paramètre, la date de naissance
+	longueur=${#dtn} # On définit la longueur de la chaine 
+	d="$longueur"-4 # On définit l'indice de début de la sous-chaine
+	lg="$longueur"-1 # On definit la longeur de la sous-chaine
+	annee=${dtn:$d:$lg} # On utilise l'extraction d'une sous-chaine dans une variable pour trouver l'annee de naissance dans la date de naissance.
+	echo "Le meilleur lance du $(categorie $annee) $1 $2 est de $(maximum $4 $5 $6) m" # On affiche le resultat en appelant les fonctions categorie et maximum.
+fi 

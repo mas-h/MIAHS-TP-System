@@ -1,0 +1,30 @@
+#!/bin/bash
+# calcule le resulat de plusieurs athlètes en donnant leur catgéorie d'age et leur meilleur performance à partir d'un fichier texte.
+# Auteur : Samuel Huguet 2016
+
+function aide ()
+
+{
+	echo "calcule les resulats de plusieurs athletes en donnant leur categorie d'age et leur meilleur performance a partir d'un fichier texte."
+	echo "usage : calculerresulats nom_du_fichier.txt"
+	echo "vous pouvez acceder a l'aide en tapant : calculerresultats -h"
+	
+}
+
+if [ "$#" -ne 1 ]; then 
+echo "Erreur, le nombre de parametres donnes est incorrect. Veuillez fournir 1 parametres et seulement 1."  
+aide
+
+elif [ "$1" = "-h" ]; then # affiche l'aide de la commande (si $1 = "-h"
+aide
+
+else 	
+	while IFS=: read nom prenom dtn essai1 essai2 essai3
+		
+		do 
+		
+			echo "$(afficherresultats $nom $prenom $dtn $essai1 $essai2 $essai3)"
+		
+		done < "$1"
+		
+fi 
